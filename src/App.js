@@ -33,13 +33,22 @@ class App extends Component {
         </div>
 
         <div>
-          <label>Height(cm)</label>
-          <input name="height" value={this.state.height} onChange={(e) => this.setState({ height: e.target.value })} />
+          <label>
+            Height {this.state.methodName === 'Metric' ? '(cm)' : '(inches)'}
+          </label>
+          <input name="height" 
+          value={this.state.height} 
+          onChange={e => this.setState({ height: e.target.value })} />
+          <br />
+          <button onClick={() => this.methodChange()}>
+            {this.state.methodName}
+          </button>
         </div>
 
         <DisplayResult
           weight={this.state.weight}
           height={this.state.height}
+          methodName={this.state.methodName}
         />
       </div>
     );
