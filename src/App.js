@@ -7,7 +7,16 @@ class App extends Component {
     super(props);
     this.state = {
       weight: '',
-      height: ''
+      height: '',
+      methodName: 'Metric'
+    };
+  }
+
+  methodChange() {
+    if (this.state.methodName === 'Metric') {
+      this.setState({ methodName: 'Imperial'});
+    } else {
+      this.setState({ methodName: 'Metric' });
     }
   }
 
@@ -15,8 +24,12 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <label>Weight(kg)</label>
-          <input name="weight" value={this.state.weight} onChange={(e) => this.setState({ weight: e.target.value })} />
+          <label>
+            Weight {this.state.methodName === 'Metric' ? '(kg)' : '(lbs)'}
+          </label>
+          <input name="weight" 
+          value={this.state.weight} 
+          onChange={e => this.setState({ weight: e.target.value})} />
         </div>
 
         <div>
