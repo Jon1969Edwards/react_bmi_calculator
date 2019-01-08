@@ -19,18 +19,18 @@ export const bmiCalculation = (weight, height, method) => {
   
   const setBMIMessage = (finalBMI) => {
     if (finalBMI < 18.5) {
-      return "Underweight";
+      return "slowly dying of starvation";
     }
   
     if (finalBMI > 18.5 && finalBMI < 25) {
-      return "Normal";
+      return "Normal.  Nothing to see here";
     }
   
     if (finalBMI > 25 && finalBMI < 30) {
-      return "Overweight";
+      return "fat.  Maybe try a veggie?";
     }
   
     if (finalBMI > 30) {
-      return "Obese";
+      return "Obese.  'Nom nom nom'";
     }
   }
