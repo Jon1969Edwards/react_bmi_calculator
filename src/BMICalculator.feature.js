@@ -19,7 +19,7 @@ describe('BMI Converter', () => {
         })
 
         it('displays assesment', async () => {   
-            await expect(page).toMatch('You are Overweight')
+            await expect(page).toMatch('You are fat.  Maybe try a veggie?')
         })
 
         it('displays BMI value', async () => {   
@@ -35,7 +35,7 @@ describe('BMI Converter', () => {
         })
 
         it('displays assesment', async () => {   
-            await expect(page).toMatch('You are Overweight')
+            await expect(page).toMatch('You are fat.  Maybe try a veggie?')
         })
 
         it('displays BMI value', async () => {   
