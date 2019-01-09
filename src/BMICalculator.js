@@ -5,32 +5,37 @@ export const bmiCalculation = (weight, height, method) => {
   
     weight = isNaN(weight) ? 0 : weight;
     height = isNaN(height) ? 0 : height;
-  
-    bmi = weight / (height / 100 * height / 100);
+
+    if( method === "Metric") {
+      bmi = weight / (height / 100 * height / 100);
+  } else {
+      bmi = weight * 703 / (height * height)
+  };
+
   
     let finalBMI = parseFloat(bmi.toFixed(2));
     let BMIMessage = setBMIMessage(finalBMI)
     if (isNaN(finalBMI) || !isFinite(finalBMI) || finalBMI === 0) {
       return '';
-    } else {
+    } {
       return `You are ${BMIMessage} with a BMI of ${finalBMI}`;
     }      
   }
   
   const setBMIMessage = (finalBMI) => {
     if (finalBMI < 18.5) {
-      return "slowly dying of starvation";
+      return "underweight";
     }
   
     if (finalBMI > 18.5 && finalBMI < 25) {
-      return "Normal.  Nothing to see here";
+      return "normal";
     }
   
     if (finalBMI > 25 && finalBMI < 30) {
-      return "fat.  Maybe try a veggie?";
+      return "overweight";
     }
   
     if (finalBMI > 30) {
-      return "Obese.  'Nom nom nom'";
+      return "obese";
     }
   }

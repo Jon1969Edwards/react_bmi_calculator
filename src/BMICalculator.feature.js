@@ -13,13 +13,14 @@ describe('BMI Converter', () => {
 
     describe('Metric method', async () => {
         beforeEach( async () => {
-            await page.select('select[id="method"]', 'metric')
             await page.type('input[name="weight"]', '95')
             await page.type('input[name="height"]', '186')
+            await page.click('button[name="method"]', 'metric')
+            await page.click('button[name="calculate"]')
         })
 
         it('displays assesment', async () => {   
-            await expect(page).toMatch('You are fat.  Maybe try a veggie?')
+            await expect(page).toMatch('overweight')
         })
 
         it('displays BMI value', async () => {   
@@ -29,13 +30,14 @@ describe('BMI Converter', () => {
 
     describe('Imperial method', async () => {
         beforeEach( async () => {
-            await page.select('select[id="method"]', 'imperial')
             await page.type('input[name="weight"]', '200')
             await page.type('input[name="height"]', '73')
+            await page.click('button[name="method"]', 'imperial')
+            await page.click('button[name="calculate"]')
         })
 
         it('displays assesment', async () => {   
-            await expect(page).toMatch('You are fat.  Maybe try a veggie?')
+            await expect(page).toMatch('overweight')
         })
 
         it('displays BMI value', async () => {   
